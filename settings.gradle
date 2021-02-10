@@ -1,0 +1,13 @@
+rootProject.name = 'Clean_architecture_practice'
+
+include ":app-service"
+include ":model"
+include ":usecase"
+include ":reactive-rest-consumer"
+include ":reactive-web"
+
+project(':app-service').projectDir = file('./applications/alias-service')
+project(':model').projectDir = file('./domain/model')
+project(':usecase').projectDir = file('./domain/usecase')
+project(':reactive-rest-consumer').projectDir = file('./infraestructure/driven-adapters/reactive-rest-consumer')
+project(':reactive-web').projectDir = file('./infraestructure/entry-points/reactive-web')

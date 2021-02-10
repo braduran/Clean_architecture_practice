@@ -1,0 +1,33 @@
+apply plugin: 'application'
+apply plugin: 'org.springframework.boot'
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: "io.spring.dependency-management"
+
+dependencies {
+    compile project(":usecase")
+    compile project(":reactive-web")
+    compile project(":reactive-rest-consumer")
+
+    //Dependencias
+    implementation libs.spring_boot
+
+}
+
+
+jar {
+    archivesBaseName = rootProject.name
+    libsDirName = project(":").getBuildDir()
+}
+
+application {
+    mainClassName = 'co.com.bancolombia.Application'
+}
